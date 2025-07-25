@@ -32,3 +32,12 @@ update  - Update an existing task
 delete  - Delete a task
 help    - Show this help message
 exit    - Exit the application
+
+
+Config:
+------------------------------
+config.py
+# MongoDB Configuration
+MONGODB_URI = "mongodb://localhost:27017/"
+DATABASE_NAME = "task_manager"
+COLLECTION_NAME = "tasks"
