@@ -129,8 +129,10 @@ class TaskCLI:
                 due_date=due_date,
                 priority=priority
             )
-            
-            logger.info(f"Task created successfully! ID: {task.task_id}")
+            if(task.title):
+                logger.info(f"Task created successfully! ID: {task.task_id}")
+            else:
+                logger.warning("Failed to create task")
             
         except Exception as e:
             logger.error(f"Failed to create task: {e}")

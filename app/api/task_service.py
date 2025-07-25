@@ -38,9 +38,12 @@ class TaskService:
         
         # Insert into database
         result = self.collection.insert_one(task.to_dict())
-        task.task_id = result.inserted_id
+        if result:
+            created_task = Task(title=title, description=description, due_date=due_date, priority=priority, task_id=result.inserted_id)
+        else: 
+            return task
         
-        return task
+        return created_task
     
     def get_all_tasks(self) -> List[Task]:
         """
